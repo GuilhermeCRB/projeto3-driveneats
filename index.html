@@ -23,88 +23,97 @@
     <main>
         <section>
             <p>Primeiro, seu prato</p>
-            <ul data-identifier="dishes">
+            <ul data-identifier="dishes" class="comida">
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/frango-yin-yang.png" alt="Foto do prato frango yin yang">
                     <h2 data-identifier="food-title">Frango Yin Yang</h2>
                     <p>Um pouco de batata, um pouco de salada</p>
-                    <span data-identifier="food-price">R$ 14,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">14,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/risoto.png" alt="Foto do prato risoto de camarão">
                     <h2 data-identifier="food-title">Risoto de Camarão</h2>
                     <p>Apenas camarões selecionados</p>
-                    <span data-identifier="food-price">R$ 42,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">42,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
                 <li data-identifier="food-option" class="opcoes"onclick="selecionar(this)">
                     <img src="/imgs/feijao-tropeiro.jpeg" alt="Foto do prato feijão tropeiro">
                     <h2 data-identifier="food-title">Feijão Tropeiro</h2>
                     <p>O melhor de minas na sua mesa</p>
-                    <span data-identifier="food-price">R$ 29,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">29,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
             </ul>
         </section>
         <section>
             <p>Agora, sua bebida</p>
-            <ul data-identifier="drinks">
+            <ul data-identifier="drinks" class="bebida">
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/coca.png" alt="Foto de latinhas de coca-cola">
                     <h2 data-identifier="food-title">Coquinha Gelada</h2>
                     <p>Lata 350mL</p>
-                    <span data-identifier="food-price">R$ 4,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">4,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/limonada.jpg" alt="Foto de um copo de limonada">
                     <h2 data-identifier="food-title">Limonada Suiça</h2>
                     <p>Copo 300mL, sem açúcar</p>
-                    <span data-identifier="food-price">R$ 5,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">5,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/amarula.jpg" alt="Foto de uma garrafa de amarula">
                     <h2 data-identifier="food-title">Garrafa de Amarula</h2>
                     <p>Imagem meramente ilustrativa</p>
-                    <span data-identifier="food-price">R$ 99,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">99,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
             </ul>
         </section>
         <section>
             <p>Por fim, sua sobremesa</p>
-            <ul data-identifier="desserts">
+            <ul data-identifier="desserts" class="sobremesa">
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/pudim.png" alt="Foto de um pudim">
                     <h2 data-identifier="food-title">Pudim</h2>
                     <p>Apenas pudim</p>
-                    <span data-identifier="food-price">R$ 7,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">7,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/doce-de-leite.jpg" alt="Foto de doce de leite">
                     <h2 data-identifier="food-title">Doce de leite</h2>
                     <p>O melhor que tem</p>
-                    <span data-identifier="food-price">R$ 4,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">4,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
                 <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/pave-de-chocolate.jpg" alt="Foto de um pavê de chocolate">
                     <h2 data-identifier="food-title">Pavê de chocolate</h2>
                     <p>Sim, é pra comer...</p>
-                    <span data-identifier="food-price">R$ 9,90</span>
+                    <span data-identifier="food-price">R$ <span class="preco">9,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
             </ul>
         </section>
     </main>
     <footer>
-        <div class="botao">
+        <div class="botao" onclick="pedir(this)">
             <p>Selecione os 3 itens para fechar o pedido</p>
         </div>
     </footer>
+    <div class="confirmacao-do-pedido">
+        <div class="confirmacao-do-pedido_popup">
+            <p>Confirme seu pedido</p>
+            <span class="nome-da-comida"><span class="preco-da-comida"></span></span>
+            <span class="nome-da-bebida"><span class="preco-da-bebida"></span></span>
+            <span class="nome-da-sobremesa"><span class="preco-da-sobremesa"></span></span>
+            <span class="total"><span class="valor-total"></span></span>
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>dy>
 
