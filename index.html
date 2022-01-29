@@ -38,7 +38,7 @@
                     <span data-identifier="food-price">R$ <span class="preco">42,90</span></span>
                     <ion-icon name="checkmark-circle" class="check escondido"></ion-icon>
                 </li>
-                <li data-identifier="food-option" class="opcoes"onclick="selecionar(this)">
+                <li data-identifier="food-option" class="opcoes" onclick="selecionar(this)">
                     <img src="/imgs/feijao-tropeiro.jpeg" alt="Foto do prato feijão tropeiro">
                     <h2 data-identifier="food-title">Feijão Tropeiro</h2>
                     <p>O melhor de minas na sua mesa</p>
@@ -101,19 +101,37 @@
         </section>
     </main>
     <footer>
-        <div class="botao" onclick="pedir(this)">
+        <div class="botao-fazer-pedido" onclick="fazerPedido(this)">
             <p>Selecione os 3 itens para fechar o pedido</p>
         </div>
     </footer>
-    <div class="confirmacao-do-pedido">
-        <div class="confirmacao-do-pedido_popup">
-            <p>Confirme seu pedido</p>
-            <span class="nome-da-comida"><span class="preco-da-comida"></span></span>
-            <span class="nome-da-bebida"><span class="preco-da-bebida"></span></span>
-            <span class="nome-da-sobremesa"><span class="preco-da-sobremesa"></span></span>
-            <span class="total"><span class="valor-total"></span></span>
-        </div>
-    </div>
+    <aside class="confirmacao-do-pedido escondido">
+        <article class="confirmacao-do-pedido_popup">
+            <h3>Confirme seu pedido</h3>
+            <ul>
+                <li>
+                    <span class="nome-da-comida"></span>
+                    <span class="preco-da-comida popup_colado-direita"></span>
+                </li>
+                <li>
+                    <span class="nome-da-bebida"></span>
+                    <span class="preco-da-bebida popup_colado-direita"></span>
+                </li>
+                <li>
+                    <span class="nome-da-sobremesa"></span>
+                    <span class="preco-da-sobremesa popup_colado-direita"></span>
+                </li>
+                <li>
+                    <span class="total negrito">TOTAL</span>
+                    <span class="valor-total popup_colado-direita negrito"></span>
+                </li>
+            </ul>
+            <div onclick="confirmarPedido()">
+                <p>Tudo certo, pode pedir!</p>
+            </div>
+            <p onclick="cancelarPedido()">Cancelar</p>
+        </article>
+    </aside>
     <script src="script.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>dy>
 

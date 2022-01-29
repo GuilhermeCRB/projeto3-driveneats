@@ -1,9 +1,9 @@
 // ----------------------------------------------------------------------------------------------------------
 //                                         Variáveis globais
 
-let opcaoComida = {nome: "0", preco: 0};    
-let opcaoBebida = {nome: "0", preco: 0};     
-let opcaoSobremesa = {nome: "0", preco: 0};  
+let opcaoComida = {nome: "0", preco: "0"};    
+let opcaoBebida = {nome: "0", preco: "0"};     
+let opcaoSobremesa = {nome: "0", preco: "0"};  
 
 
 //-----------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ function selecionar(elemento) {
             opcaoSobremesa.preco = elemento.querySelector('.preco').innerHTML;
         }
     } else {
-        const botao = document.querySelector(".botao");                                                                     //Para voltar a bloquear o botão caso o usuário, após selecionar
+        const botao = document.querySelector(".botao-fazer-pedido");                                                                     //Para voltar a bloquear o botão caso o usuário, após selecionar
         const botao_texto = botao.querySelector("p"); botao_texto.innerHTML = "Selecione os 3 itens para fechar o pedido";  //os 3 itens necessários, desmarque novamente um deles.
         botao.classList.remove("liberado");
                                                                                                                            
@@ -53,7 +53,7 @@ function selecionar(elemento) {
     }
 
     if (opcaoComida.nome !== "0" && opcaoBebida.nome !== "0" && opcaoSobremesa.nome !== "0") {  //Libera para finalizar o pedido
-        const botao = document.querySelector(".botao");
+        const botao = document.querySelector(".botao-fazer-pedido");
         botao.classList.add("liberado");
         const botao_texto = botao.querySelector("p"); botao_texto.innerHTML = "Fechar pedido";
     }
@@ -63,12 +63,41 @@ function selecionar(elemento) {
 
 
 // ----------------------------------------------------------------------------------------------------------
-//                                      Função para realização do pedido
+//                                      Função para confirmação do pedido
 
-function pedir(elemento){
-    if (elemento.classList.contains(".liberado") === true) {
-        
+function fazerPedido(elemento){
+    if (elemento.classList.contains("liberado") === true) {
+        document.querySelector(".nome-da-comida").innerHTML = opcaoComida.nome;
+        document.querySelector(".preco-da-comida").innerHTML = opcaoComida.preco;
+        document.querySelector(".nome-da-bebida").innerHTML = opcaoBebida.nome;
+        document.querySelector(".preco-da-bebida").innerHTML = opcaoBebida.preco;
+        document.querySelector(".nome-da-sobremesa").innerHTML = opcaoSobremesa.nome;
+        document.querySelector(".preco-da-sobremesa").innerHTML = opcaoSobremesa.preco;
+
+        opcaoComida.preco = opcaoComida.preco.replace(",",".");             //Troca "," por "."
+        opcaoBebida.preco = opcaoBebida.preco.replace(",","."); 
+        opcaoSobremesa.preco = opcaoSobremesa.preco.replace(",",".");
+        opcaoComida.preco = parseFloat(opcaoComida.preco);                  //Transforma o input string em float    
+        opcaoBebida.preco = parseFloat(opcaoBebida.preco); 
+        opcaoSobremesa.preco = parseFloat(opcaoSobremesa.preco);
+        let total = opcaoComida.preco + opcaoBebida.preco + opcaoSobremesa.preco;
+
+        document.querySelector(".valor-total").innerHTML ="R$ " + total.toFixed(2).toString().replace(".",",");
+
         document.querySelector(".confirmacao-do-pedido").classList.remove("escondido");
+    }
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+
+// ----------------------------------------------------------------------------------------------------------
+//                                      Função para cancelar o pedido
+function cancelarPedido(){
+    document.querySelector(".confirmacao-do-pedido").classList.add("escondido");
+    const cancelarOpcoes = document.getElementsByClassName("selecionado");
+    for (let i = 0; i < cancelarOpcoes.lenght; i++) {
+        cancelarOpcoes[i].classList.remove("selecionado");
     }
 }
 
