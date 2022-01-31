@@ -3,7 +3,7 @@
 
 let opcaoComida = {nome: "0", preco: "0"};    
 let opcaoBebida = {nome: "0", preco: "0"};     
-let opcaoSobremesa = {nome: "0", preco: "0"}; 
+let opcaoSobremesa = {nome: "0", preco: "0"};
 let total
 
 //-----------------------------------------------------------------------------------------------------------
@@ -94,8 +94,12 @@ function fazerPedido(elemento){
 //                                    Função para confirmação do pedido
 
 function confirmarPedido(){
+    let cliente = {nome: "", endereço: ""};
+    cliente.nome = prompt("Qual o seu nome?"); cliente.endereço = prompt("Qual o seu endereço?");
+
     let mensagem = "Olá, gostaria de fazer o *pedido*:" + "\n*- Prato*: " + opcaoComida.nome + "\n*- Bebida*: " + 
-                   opcaoBebida.nome + "\n*- Sobremesa*: " + opcaoSobremesa.nome + "\n*Total*: R$ *" + total.toFixed(2) + "*";
+                   opcaoBebida.nome + "\n*- Sobremesa*: " + opcaoSobremesa.nome + "\n*Total*: R$ *" + total.toFixed(2) + "*" +
+                   "\n\n*Nome*: " + cliente.nome + "\n*Endereço*: " + cliente.endereço;
     window.open("https://wa.me/5521981950344?text=" + encodeURIComponent(mensagem));
 }
 
