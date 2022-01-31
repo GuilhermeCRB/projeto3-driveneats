@@ -196,7 +196,7 @@ ion-icon {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.confirmacao-do-pedido_popup{
+.confirmacao-do-pedido_caixa{
     position: relative;
     width: 377px;
     height: 353px;
@@ -206,7 +206,7 @@ ion-icon {
     border-radius: 9px;
 }
 
-.confirmacao-do-pedido_popup h3{
+.confirmacao-do-pedido_caixa h3{
     font-weight: bold;
     font-size: 22px;
     line-height: 26px;
@@ -216,7 +216,7 @@ ion-icon {
 }
 
 
-.confirmacao-do-pedido_popup span{
+.confirmacao-do-pedido_caixa span{
     display: inline-block;
     font-size: 22px;
     line-height: 26px;
@@ -225,7 +225,7 @@ ion-icon {
     color: #FFFFFF;
 }
 
-.popup_colado-direita{
+.caixa_colado-direita{
     position: absolute;
     right: 25px;
 }
@@ -247,7 +247,7 @@ article div p{
     color: #50D074;
 }
 
-.confirmacao-do-pedido_popup > p{
+.confirmacao-do-pedido_caixa > p{
     font-weight: bold;
     font-size: 20px;
     line-height: 26px;
