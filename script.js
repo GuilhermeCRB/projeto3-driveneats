@@ -100,7 +100,7 @@ function confirmarPedido(){
     let mensagem = "Olá, gostaria de fazer o *pedido*:" + "\n*- Prato*: " + opcaoComida.nome + "\n*- Bebida*: " + 
                    opcaoBebida.nome + "\n*- Sobremesa*: " + opcaoSobremesa.nome + "\n*Total*: R$ *" + total.toFixed(2) + "*" +
                    "\n\n*Nome*: " + cliente.nome + "\n*Endereço*: " + cliente.endereço;
-    window.open("https://wa.me/5521981950344?text=" + encodeURIComponent(mensagem));
+    window.open("https://wa.me/5521999999999?text=" + encodeURIComponent(mensagem));
 }
 
 //-----------------------------------------------------------------------------------------------------------
