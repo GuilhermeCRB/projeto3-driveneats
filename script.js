@@ -3,8 +3,8 @@
 
 let opcaoComida = {nome: "0", preco: "0"};    
 let opcaoBebida = {nome: "0", preco: "0"};     
-let opcaoSobremesa = {nome: "0", preco: "0"};  
-
+let opcaoSobremesa = {nome: "0", preco: "0"};
+let total
 
 //-----------------------------------------------------------------------------------------------------------
 
@@ -39,7 +39,7 @@ function selecionar(elemento) {
             opcaoSobremesa.preco = elemento.querySelector('.preco').innerHTML;
         }
     } else {
-        const botao = document.querySelector(".botao-fazer-pedido");                                                                     //Para voltar a bloquear o botão caso o usuário, após selecionar
+        const botao = document.querySelector(".botao-fazer-pedido");                                                        //Para voltar a bloquear o botão caso o usuário, após selecionar
         const botao_texto = botao.querySelector("p"); botao_texto.innerHTML = "Selecione os 3 itens para fechar o pedido";  //os 3 itens necessários, desmarque novamente um deles.
         botao.classList.remove("liberado");
                                                                                                                            
@@ -63,7 +63,7 @@ function selecionar(elemento) {
 
 
 // ----------------------------------------------------------------------------------------------------------
-//                                      Função para confirmação do pedido
+//                                       Função que realiza do pedido
 
 function fazerPedido(elemento){
     if (elemento.classList.contains("liberado") === true) {
@@ -80,7 +80,7 @@ function fazerPedido(elemento){
         opcaoComida.preco = parseFloat(opcaoComida.preco);                  //Transforma o input string em float    
         opcaoBebida.preco = parseFloat(opcaoBebida.preco); 
         opcaoSobremesa.preco = parseFloat(opcaoSobremesa.preco);
-        let total = opcaoComida.preco + opcaoBebida.preco + opcaoSobremesa.preco;
+        total = opcaoComida.preco + opcaoBebida.preco + opcaoSobremesa.preco;
 
         document.querySelector(".valor-total").innerHTML ="R$ " + total.toFixed(2).toString().replace(".",",");
 
@@ -90,15 +90,29 @@ function fazerPedido(elemento){
 
 //-----------------------------------------------------------------------------------------------------------
 
-
 // ----------------------------------------------------------------------------------------------------------
-//                                      Função para cancelar o pedido
-function cancelarPedido(){
-    document.querySelector(".confirmacao-do-pedido").classList.add("escondido");
-    const cancelarOpcoes = document.getElementsByClassName("selecionado");
-    for (let i = 0; i < cancelarOpcoes.lenght; i++) {
-        cancelarOpcoes[i].classList.remove("selecionado");
-    }
+//                                    Função para confirmação do pedido
+
+function confirmarPedido(){
+    let cliente = {nome: "", endereço: ""};
+    cliente.nome = prompt("Qual o seu nome?"); cliente.endereço = prompt("Qual o seu endereço?");
+
+    let mensagem = "Olá, gostaria de fazer o *pedido*:" + "\n*- Prato*: " + opcaoComida.nome + "\n*- Bebida*: " + 
+                   opcaoBebida.nome + "\n*- Sobremesa*: " + opcaoSobremesa.nome + "\n*Total*: R$ *" + total.toFixed(2) + "*" +
+                   "\n\n*Nome*: " + cliente.nome + "\n*Endereço*: " + cliente.endereço;
+    window.open("https://wa.me/5521999999999?text=" + encodeURIComponent(mensagem));
 }
 
+//-----------------------------------------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------------------------------------
+//                                     Função para cancelar o pedido
+
+function cancelarPedido(){
+    document.querySelector(".confirmacao-do-pedido").classList.add("escondido");
+    
+    opcaoComida.preco = opcaoComida.preco.toFixed(2).toString(); opcaoComida.preco = opcaoComida.preco.replace(".",",");
+    opcaoBebida.preco = opcaoBebida.preco.toFixed(2).toString(); opcaoBebida.preco = opcaoBebida.preco.replace(".",",");
+    opcaoSobremesa.preco = opcaoSobremesa.preco.toFixed(2).toString(); opcaoSobremesa.preco = opcaoSobremesa.preco.replace(".",",");
+}
 //-----------------------------------------------------------------------------------------------------------
